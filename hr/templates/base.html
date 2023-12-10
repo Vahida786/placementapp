@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="overflow-x-hidden">
+
+<!-- {%block body_block%} -->
+
+    <div class="">
+        <div class="row ">
+            <div class="col-2 px-5 pt-5 bg-dark vh-100" id="sticky-sidebar">
+                <div class="sticky-top">
+                    <div class="nav flex-column">
+                        <p class="fw-bold fs-4 text-center text-light">Admin / User</p>
+                        <hr class="text-light">
+                        <a href="#"
+                            class="text-light text-decoration-none mt-4 p-2 fs-6 btn btn-dark text-start">Home</a>
+                        <a href="{%url 'category'%}"
+                            class="text-light text-decoration-none p-2 fs-6 btn btn-dark text-start">Category</a>
+                        
+
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 Jobs
+                                </a>
+                              
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="{%url 'job-add'%}">Add New Job</a></li>
+                                  <li><a class="dropdown-item" href="{%url 'job-list'%}">All Jobs</a></li>
+                                  
+                                </ul>
+                              </div>
+                        <a href="#" class="text-light text-decoration-none p-2 fs-6 btn btn-dark text-start">Applications</a>
+                        <a href="{%url 'signout'%}" class="text-light text-decoration-none p-2 fs-6 btn btn-dark text-start">Logout</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-2 " id="main">
+                <div class="mt-5"></div>
+                <h3 class="fw-bold">Hello ({{request.user}}),</h3>
+              
+            
+               
+                {%block mainblock%}
+
+                {%endblock%}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- {%endblock%} -->
+
+
+</body>
+
+</html>

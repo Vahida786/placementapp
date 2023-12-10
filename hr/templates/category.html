@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block mainblock%}
+
+<div class="row mt-5">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form action="" method="post">
+            {%csrf_token%}
+        <h1>Category</h1>
+            <hr class="mb-5 w-25 border-4">
+            <div class="d-flex mt-4">
+                <input type="text" name="name" class="form-control ">
+                <button type="submit" class="btn btn-dark ms-2">Add</button>
+            </div>
+        </form>
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark ">
+                <tr>
+                    <th>Jobs</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {%for d in data%}
+              <tr>
+                    <td>{{d.name}}</td>
+                    <td><a href="{%url 'category-delete' d.id%}"><i class="fa-solid fa-trash"></i></a></td>
+              </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+{%endblock%}

@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+
+{%block mainblock%}
+{%if form.errors%}
+    {{form.errors}}
+{%endif%}
+<div class="container d-flex justify-content-around">
+    <form action="" method="post" class="bg-white m-2 p-1 w-75 rounded-3" enctype="multipart/form-data">
+        
+        {%csrf_token%}
+        <p class="fw-bold fs-4 ">Edit Job</p>
+        <hr class="mb-1 w-25 border-4">
+        <div class=" row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="">Title :</label>
+                <input type="text" value="{{form.title.value}}" name="title" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label for="">Category :</label>
+               {{form.category}}
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Company
+                    :</label><input type="text" value="{{form.company.value}}" name="company" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Experience
+                    :</label>
+                    <input type="text" value="{{form.experience.value}}" name="experience" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Salary
+                    :</label><input type="text" name="salary" value="{{form.salary.value}}" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Vaccancies
+                    :</label><input type="text" value="{{form.vaccancies.value}}" name="vaccancies" class="form-control"></div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Poster
+                    :</label><input type="file" name="poster" class="form-control">
+                {{form.poster.value}}
+                </div>
+
+            <div class="col-lg-6 col-md-6 colvaccancies-sm-12 col-12 mt-4">
+                <label class="" for="">Contact :</label>
+                <input type="number" value="{{form.contact.value}}" name="contact" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Qualification
+                    :</label><input type="text" value="{{form.qualification.value}}" name="qualification" class="form-control"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
+                <label class="" for="">Last Date :</label>
+                {{form.last_date}}
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4">
+                    <label class="" for="">Status :</label>
+                    {{form.status}}
+                    </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-4"><label class="" for="">Description
+                    :</label>
+                    <textarea class="form-control" name="description">
+                        {{form.description.value}}
+                    </textarea></div>
+
+            <div class="text-center">
+                <button class="btn btn-dark mt-4 mb-4 w-50" type="submit">Add Job</button>
+                <br>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+{%endblock%}
